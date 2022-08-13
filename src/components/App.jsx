@@ -67,13 +67,7 @@ class App extends Component {
     );
     return (
       <Main title="Phonebook">
-        <Phonebook
-          onChange={this.handleChange}
-          onSubmit={this.formSubmitHandle}
-          contactsList={visibleContacts}
-          notEmptyList={this.state.contacts.length}
-          valueFilter={this.state.filter}
-        />
+        <Phonebook onSubmit={this.formSubmitHandle} />
         {this.state.contacts.length > 0 ? (
           <Contacts
             name="Contacts"
