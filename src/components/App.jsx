@@ -5,17 +5,21 @@ import Main from './Main/Main';
 import Contacts from './Phonebook/Contacts/Contacts';
 
 const App = () => {
-  const contactsFromLocalStorage = () => {
+  // const contactsFromLocalStorage = () => {
+  //   const localStorageContacts = window.localStorage.getItem('contacts');
+  //   const parsedContats = JSON.parse(localStorageContacts);
+
+  //   if (parsedContats) {
+  //     return parsedContats;
+  //   }
+  //   return [];
+  // };
+
+  const [contacts, setContacts] = useState(() => {
     const localStorageContacts = window.localStorage.getItem('contacts');
     const parsedContats = JSON.parse(localStorageContacts);
-
-    if (parsedContats) {
-      return parsedContats;
-    }
-    return [];
-  };
-
-  const [contacts, setContacts] = useState(contactsFromLocalStorage());
+    return parsedContats || [];
+  });
   const [filter, setFilter] = useState('');
 
   const handleChange = e => {
